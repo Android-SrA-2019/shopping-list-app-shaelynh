@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtItemThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemFour"
+            app:layout_constraintStart_toStartOf="@+id/txtItemFour"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemTwo" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="731dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="26dp"
+            android:onClick="openItems"
+            android:text="Add Item"
+            app:layout_constraintBottom_toBottomOf="@+id/txtItemNine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtItemSix" />
+
+        <TextView
+            android:id="@+id/txtItemOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="78dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemTwo"
+            app:layout_constraintStart_toStartOf="@+id/txtItemTwo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtItemTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemThree"
+            app:layout_constraintStart_toStartOf="@+id/txtItemThree"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemOne" />
+
+        <TextView
+            android:id="@+id/txtItemFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemFive"
+            app:layout_constraintStart_toStartOf="@+id/txtItemFive"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemThree" />
+
+        <TextView
+            android:id="@+id/txtItemFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="69dp"
+            android:layout_marginBottom="125dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txtItemSix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemSeven"
+            app:layout_constraintStart_toStartOf="@+id/txtItemSeven"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemFive" />
+
+        <TextView
+            android:id="@+id/txtItemSeven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemEight"
+            app:layout_constraintStart_toStartOf="@+id/txtItemEight"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemSix" />
+
+        <TextView
+            android:id="@+id/txtItemEight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemNine"
+            app:layout_constraintStart_toStartOf="@+id/txtItemNine"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemSeven" />
+
+        <TextView
+            android:id="@+id/txtItemNine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtItemTen"
+            app:layout_constraintStart_toStartOf="@+id/txtItemTen"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemEight" />
+
+        <TextView
+            android:id="@+id/txtItemTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="263dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtItemSix"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

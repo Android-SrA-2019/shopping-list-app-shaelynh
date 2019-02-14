@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnCheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="78dp"
+        android:text="Cheese"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="67dp"
+        android:text="Rice"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCheese"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnApples"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Apples"
+        app:layout_constraintStart_toStartOf="@+id/btnCheese"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheese" />
+
+    <Button
+        android:id="@+id/btnEggs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Eggs"
+        app:layout_constraintStart_toStartOf="@+id/btnApples"
+        app:layout_constraintTop_toBottomOf="@+id/btnApples" />
+
+    <Button
+        android:id="@+id/btnCereal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Cereal"
+        app:layout_constraintStart_toStartOf="@+id/btnEggs"
+        app:layout_constraintTop_toBottomOf="@+id/btnEggs" />
+
+    <Button
+        android:id="@+id/btnLettuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:text="Lettuce"
+        app:layout_constraintStart_toStartOf="@+id/btnCereal"
+        app:layout_constraintTop_toBottomOf="@+id/btnCereal" />
+
+    <Button
+        android:id="@+id/btnBread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bread"
+        app:layout_constraintBottom_toBottomOf="@+id/btnApples"
+        app:layout_constraintEnd_toEndOf="@+id/btnRice" />
+
+    <Button
+        android:id="@+id/btnBacon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bacon"
+        app:layout_constraintBottom_toBottomOf="@+id/btnEggs"
+        app:layout_constraintEnd_toEndOf="@+id/btnBread" />
+
+    <Button
+        android:id="@+id/btnCorn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Corn"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCereal"
+        app:layout_constraintEnd_toEndOf="@+id/btnBacon" />
+
+    <Button
+        android:id="@+id/btnOranges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oranges"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLettuce"
+        app:layout_constraintEnd_toEndOf="@+id/btnCorn" />
+</android.support.constraint.ConstraintLayout>
