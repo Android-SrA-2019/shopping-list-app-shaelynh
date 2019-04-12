@@ -1,5 +1,6 @@
 package ca.nbcc.shoppinglist;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,14 +10,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class ShoppingItems  extends AppCompatActivity {
+/**
+ * Shaelyn Hooley
+ * 04/12/19
+ * ShoppingItems
+ * This assignment represents my own
+ * work and is in accordance with the College
+ * Academic Policy.
+ */
+public class ShoppingItems extends AppCompatActivity {
 
+    String name = "";
 
     private Button btnCheese, btnRice, btnApples, btnEggs, btnCereal, btnLettuce, btnBread,
-    btnCorn, btnBacon, btnOranges;
+            btnCorn, btnBacon, btnOranges;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
 
@@ -27,34 +38,30 @@ public class ShoppingItems  extends AppCompatActivity {
         btnCereal = (Button) findViewById(R.id.btnCereal);
         btnLettuce = (Button) findViewById(R.id.btnLettuce);
         btnBread = (Button) findViewById(R.id.btnBread);
-        btnBacon = (Button) findViewById(R.id.btnBacon);
         btnCorn = (Button) findViewById(R.id.btnCorn);
+        btnBacon = (Button) findViewById(R.id.btnBacon);
         btnOranges = (Button) findViewById(R.id.btnOranges);
 
-
-
+        //set an on click listener for each button, send data to main activity, and and finish
         btnCheese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               //send data to main activity
-                Intent intent = new Intent(ShoppingItems.this, MainActivity.class);
-                intent.putExtra("cheese", "Cheese");
-
-                startActivity(intent);
-    toastMessage("Starting intent" + intent);
-
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("cheese", 1);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
             }
         });
 
         btnRice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentTwo = new Intent(ShoppingItems.this, MainActivity.class);
-                intentTwo.putExtra("rice", "Rice");
-
-                startActivity(intentTwo);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("rice", 2);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -62,11 +69,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnApples.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentThree = new Intent(ShoppingItems.this, MainActivity.class);
-                intentThree.putExtra("apples", "Apples");
-
-                startActivity(intentThree);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("apples", 3);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -74,10 +81,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnEggs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentFour = new Intent(ShoppingItems.this, MainActivity.class);
-                intentFour.putExtra("eggs", "Eggs");
-                startActivity(intentFour);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("eggs", 4);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -85,11 +93,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnCereal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                Intent intentFive = new Intent(ShoppingItems.this, MainActivity.class);
-                intentFive.putExtra("cereal", "Cereal");
-                startActivity(intentFive);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("cereal", 5);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -97,10 +105,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnLettuce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentSix = new Intent(ShoppingItems.this, MainActivity.class);
-                intentSix.putExtra("lettuce", "Lettuce");
-                startActivity(intentSix);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("lettuce", 6);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -108,10 +117,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnBread.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentSeven = new Intent(ShoppingItems.this, MainActivity.class);
-                intentSeven.putExtra("bread", "Bread");
-                startActivity(intentSeven);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("bread", 7);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -119,10 +129,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnBacon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentEight = new Intent(ShoppingItems.this, MainActivity.class);
-                intentEight.putExtra("bacon", "Bacon");
-                startActivity(intentEight);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("bacon", 8);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -130,10 +141,11 @@ public class ShoppingItems  extends AppCompatActivity {
         btnCorn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentNine = new Intent(ShoppingItems.this, MainActivity.class);
-                intentNine.putExtra("corn", "Corn");
-                startActivity(intentNine);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("corn", 9);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
@@ -141,26 +153,15 @@ public class ShoppingItems  extends AppCompatActivity {
         btnOranges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intentTen = new Intent(ShoppingItems.this, MainActivity.class);
-                intentTen.putExtra("oranges", "Oranges");
-                startActivity(intentTen);
+                //send data to main activity
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("oranges", 10);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
 
             }
         });
     }
 
-    public void openMain(View view) {
-        Intent intent = new Intent(ShoppingItems.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    /**
-     * toast method for faster toast
-     * @param message
-     */
-    private void toastMessage(String message){
-        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
-    }
 }
 

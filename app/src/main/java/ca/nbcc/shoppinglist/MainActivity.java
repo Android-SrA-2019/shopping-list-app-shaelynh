@@ -1,5 +1,7 @@
 package ca.nbcc.shoppinglist;
 
+import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Shaelyn Hooley
+ * 04/12/19
+ * Main Activity
+ * This assignment represents my own
+ * work and is in accordance with the College
+ * Academic Policy.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private TextView txtItemOne;
@@ -23,74 +33,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtItemEight;
     private TextView txtItemNine;
     private TextView txtItemTen;
-
-    public static final String MyPREFERENCES = "MyPrefs";
-    public static final String Cheese = "cheese";
-    public static final String Rice = "rice";
-    public static final String Apples = "apples";
-    public static final String Eggs = "eggs";
-    public static final String Cereal = "cereal";
-    public static final String Lettuce = "lettuce";
-    public static final String Bread = "bread";
-    public static final String Corn = "corn";
-    public static final String Bacon = "bacon";
-    public static final String Oranges = "oranges";
-
-    SharedPreferences sharedpreferences;
+    private Button btnAdd;
+    String itemResult;
+    int count;
+    private static final int requestCode = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Intent intent = getIntent();
-        Intent intentTwo = getIntent();
-        Intent intentThree = getIntent();
-        Intent intentFour = getIntent();
-        Intent intentFive = getIntent();
-        Intent intentSix = getIntent();
-        Intent intentSeven = getIntent();
-        Intent intentEight = getIntent();
-        Intent intentNine = getIntent();
-        Intent intentTen = getIntent();
-
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-
-        int count = sharedpreferences.getInt("COUNT", 0);
-        int countTwo = sharedpreferences.getInt("COUNT_TWO", 0);
-        int countThree = sharedpreferences.getInt("COUNT_THREE", 0);
-        int countFour = sharedpreferences.getInt("COUNT_FOUR", 0);
-        int countFive = sharedpreferences.getInt("COUNT_FIVE", 0);
-        int countSix = sharedpreferences.getInt("COUNT_SIX", 0);
-        int countSeven = sharedpreferences.getInt("COUNT_SEVEN", 0);
-        int countEight = sharedpreferences.getInt("COUNT_EIGHT", 0);
-        int countNine = sharedpreferences.getInt("COUNT_NINE", 0);
-        int countTen = sharedpreferences.getInt("COUNT_TEN", 0);
-
-        Bundle bundle = intent.getExtras();
-
-        Bundle bundleTwo = intentTwo.getExtras();
-        Bundle bundleThree = intentThree.getExtras();
-        Bundle bundleFour = intentFour.getExtras();
-        Bundle bundleFive = intentFive.getExtras();
-        Bundle bundleSix = intentSix.getExtras();
-        Bundle bundleSeven = intentSeven.getExtras();
-        Bundle bundleEight = intentEight.getExtras();
-        Bundle bundleNine = intentNine.getExtras();
-        Bundle bundleTen = intentTen.getExtras();
-
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-
-        editor.putInt("COUNT", count);
-        editor.putInt("COUNT_TWO", countTwo);
-        editor.putInt("COUNT_THREE", countThree);
-        editor.putInt("COUNT_FOUR", countFour);
-        editor.putInt("COUNT_FIVE", countFive);
-        editor.putInt("COUNT_SIX", countSix);
-        editor.putInt("COUNT_SEVEN", countSeven);
-        editor.putInt("COUNT_EIGHT", countEight);
-        editor.putInt("COUNT_NINE", countNine);
-        editor.putInt("COUNT_TEN", countTen);
 
         txtItemOne = (TextView) findViewById(R.id.txtItemOne);
         txtItemTwo = (TextView) findViewById(R.id.txtItemTwo);
@@ -102,126 +53,127 @@ public class MainActivity extends AppCompatActivity {
         txtItemEight = (TextView) findViewById(R.id.txtItemEight);
         txtItemNine = (TextView) findViewById(R.id.txtItemNine);
         txtItemTen = (TextView) findViewById(R.id.txtItemTen);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
 
-        //if the bundle is not empty set the txtItems
-        if (bundle != null) {
-
-            String itemOne = (String) bundle.get("cheese");
-            editor.putString(Cheese, itemOne);
-
-            txtItemOne.setText(count + " " + itemOne);
-            count++;
-
-            if (itemOne == null) {
-                txtItemOne.setVisibility(TextView.INVISIBLE);
-            }
-        }
-        if (bundleTwo != null) {
-            String itemTwo = (String) bundleTwo.get("rice");
-            editor.putString(Rice, itemTwo);
-
-            txtItemTwo.setText(countTwo + " " + itemTwo);
-            countTwo++;
-
-            if (itemTwo == null) {
-
-                txtItemTwo.setVisibility(TextView.INVISIBLE);
-            }
-
-
-            if (bundleThree != null) {
-                String itemThree = (String) bundle.get("apples");
-                editor.putString(Apples, itemThree);
-
-                txtItemThree.setText(countThree + " " + itemThree);
-                countThree++;
-
-            } else {
-                txtItemThree.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleFour != null) {
-                String itemFour = (String) bundle.get("eggs");
-                editor.putString(Eggs, itemFour);
-                countFour++;
-
-                txtItemFour.setText(countFour + " " + itemFour);
-            } else {
-                txtItemFour.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleFive != null) {
-                String itemFive = (String) bundle.get("cereal");
-                editor.putString(Cereal, itemFive);
-                countFive++;
-
-                txtItemFive.setText(countFive + " " + itemFive);
-            } else {
-                txtItemFive.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleSix != null) {
-                String itemSix = (String) bundle.get("lettuce");
-                editor.putString(Lettuce, itemSix);
-                countSix++;
-
-                txtItemSix.setText(countSix + " " + itemSix);
-            } else {
-                txtItemSix.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleSeven != null) {
-                String itemSeven = (String) bundle.get("bread");
-                editor.putString(Bread, itemSeven);
-                countSeven++;
-
-                txtItemSeven.setText(countSeven + " " + itemSeven);
-            } else {
-                txtItemSeven.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleEight != null) {
-                String itemEight = (String) bundle.get("bacon");
-                editor.putString(Bacon, itemEight);
-
-                txtItemEight.setText(countEight + " " + itemEight);
-                countEight++;
-            } else {
-                txtItemEight.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleNine != null) {
-                String itemNine = (String) bundle.get("corn");
-                editor.putString(Corn, itemNine);
-                countNine++;
-
-                txtItemNine.setText(countNine + " " + itemNine);
-            } else {
-                txtItemNine.setVisibility(TextView.INVISIBLE);
-            }
-
-            if (bundleTen != null) {
-                String itemTen = (String) bundle.get("oranges");
-                editor.putString(Oranges, itemTen);
-                countTen++;
-
-                txtItemTen.setText(countTen + " " + itemTen);
-            } else {
-                txtItemTen.setVisibility(TextView.INVISIBLE);
-            }
-
-            editor.commit();
-            editor.apply();
-        }
-
+        //call second activity - shopping items
+        Intent i = new Intent(this, ShoppingItems.class);
+        //launching for different intents
+        startActivityForResult(i, 1);
+        startActivityForResult(i, 2);
+        startActivityForResult(i, 3);
+        startActivityForResult(i, 4);
+        startActivityForResult(i, 5);
+        startActivityForResult(i, 6);
+        startActivityForResult(i, 7);
+        startActivityForResult(i, 8);
+        startActivityForResult(i, 9);
+        startActivityForResult(i, 10);
     }
 
-    //opens activity items
-    public void openItems(View view) {
-        Intent intent = new Intent(MainActivity.this, ShoppingItems.class);
+    //retrieve data, if the result code is ok, and the item resultcode matches, then add to the textview, increase the count
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+
+            case 1:
+                if (txtItemOne.getText().toString().isEmpty()) {
+                    txtItemOne.setText(count + 1 + " " + itemResult);
+                }
+                break;
+
+            case 2:
+                if (txtItemTwo.getText().toString().isEmpty()) {
+                    txtItemTwo.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 3:
+
+                if (txtItemThree.getText().toString().isEmpty()) {
+                    txtItemThree.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 4:
+                if (txtItemFour.getText().toString().isEmpty()) {
+                    txtItemFour.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 5:
+                if (txtItemFive.getText().toString().isEmpty()) {
+                    txtItemFive.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 6:
+                if (txtItemSix.getText().toString().isEmpty()) {
+                    txtItemSix.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 7:
+                if (txtItemSeven.getText().toString().isEmpty()) {
+                    txtItemSeven.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 8:
+                if (txtItemEight.getText().toString().isEmpty()) {
+                    txtItemEight.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 9:
+                if (txtItemNine.getText().toString().isEmpty()) {
+                    txtItemNine.setText(count + 1 + " " + itemResult);
+                }
+                break;
+            case 10:
+                if (txtItemTen.getText().toString().isEmpty()) {
+                    txtItemTen.setText(count + 1 + " " + itemResult);
+                }
+                break;
+        }
+    }
+
+//Save current state of shopping list, check if the bundle received
+// is not empty, if not then save
+@Override
+public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        if(txtItemOne.getText().toString()!=null){
+        outState.putString("result",txtItemOne.getText().toString());
+        }
+        if(txtItemTwo.getText().toString()!=null){
+        outState.putString("result2",txtItemTwo.getText().toString());
+        }
+        if(txtItemThree.getText().toString()!=null){
+        outState.putString("result3",txtItemThree.getText().toString());
+        }
+        if(txtItemFour.getText().toString()!=null){
+        outState.putString("result4",txtItemFour.getText().toString());
+        }
+        if(txtItemFive.getText().toString()!=null){
+        outState.putString("result5",txtItemFive.getText().toString());
+        }
+        if(txtItemSix.getText().toString()!=null){
+        outState.putString("result6",txtItemSix.getText().toString());
+        }
+        if(txtItemSeven.getText().toString()!=null){
+        outState.putString("result7",txtItemSeven.getText().toString());
+        }
+        if(txtItemEight.getText().toString()!=null){
+        outState.putString("result8",txtItemEight.getText().toString());
+        }
+        if(txtItemNine.getText().toString()!=null){
+        outState.putString("result9",txtItemNine.getText().toString());
+        }
+        if(txtItemNine.getText().toString()!=null){
+        outState.putString("result10",txtItemNine.getText().toString());
+        }
+        }
+
+//when user clicks the add button
+public void openItems(View view){
+        //open new activity
+        Intent intent=new Intent(this,ShoppingItems.class);
         startActivity(intent);
-    }
+        }
 
-}
+        }
+
 
 
